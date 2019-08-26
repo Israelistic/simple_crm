@@ -1,2 +1,2 @@
-# Customer Relationship Manager (CRM) Assignment
+# Customer Relationship Manager (CRM)
  Very basic Ruby CRM functions
