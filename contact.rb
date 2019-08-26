@@ -14,25 +14,32 @@ class Contact
   # This method should call the initializer,
   # store the newly created contact, and then return it
   def self.create(first_name, last_name, email, note = 'N/A')
-    new_contact = self.initialize(first_name, last_name, email, note = 'N/A')
+    new_contact = self.new(first_name, last_name, email, note)
+    @@contacts << new_contact
+    return new_contact
   end
 
   # This method should return all of the existing contacts
   def self.all
-
+      return @@contacts
   end
 
   # This method should accept an id as an argument
   # and return the contact who has that id
-  def self.find
-
+  def self.find(id)
+    @@contacts.each do | contact |
+      if contact.id == id
+        return contact
+      end
+    end
   end
 
   # This method should allow you to specify
   # 1. which of the contact's attributes you want to update
   # 2. the new value for that attribute
   # and then make the appropriate change to the contact
-  def update
+  def update(attribute, new_value)
+    case
 
   end
 
@@ -64,4 +71,4 @@ class Contact
 end
 
 
- p haggai = Contact.new("Haggai", "Lerman", "haguyle@gmail.com", "DevOps Engineer" )
+Contact.create("Haggai", "Lerman", "haguyle@gmail.com", "DevOps Engineer")
