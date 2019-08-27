@@ -1,3 +1,4 @@
+require 'pry'
 class Contact
   @@contacts = []
   @@next_id = 100
@@ -21,17 +22,16 @@ class Contact
 
   # This method should return all of the existing contacts
   def self.all
-      return @@contacts
+    return @@contacts
   end
-
   # This method should accept an id as an argument
   # and return the contact who has that id
   def self.find(id)
     @@contacts.each do | contact |
-      if contact.id == id
-        return contact
-      end
-    end
+        if contact.id == id
+          return contact
+        end
+     end
   end
 
   # This method should allow you to specify
@@ -39,36 +39,93 @@ class Contact
   # 2. the new value for that attribute
   # and then make the appropriate change to the contact
   def update(attribute, new_value)
-    case
-
+    case attribute
+    when "1"
+      @first_name = new_value
+    when "2"
+      @last_name = new_value
+    when "3"
+      @email = new_value
+    when "4"
+      @note = new_value
+    end
   end
 
   # This method should work similarly to the find method above
   # but it should allow you to search for a contact using attributes other than id
   # by specifying both the name of the attribute and the value
   # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
-  def self.find_by
-
+  def self.find_by(atribute, value);
+    case attribute
+    when "1"
+      @@contact.each do |contact|
+        if contact.first_name.dowcase == value.downcase
+        return contact
+      end
+    when "2"
+      @@contact.each do |contact|
+        if contact.last_name.dowcase == value.downcase
+        return contact
+      end
+    when "3"
+      @@contact.each do |contact|
+      if contact.email.downcase.dowcase == value.downcase
+        return contact
+      end
   end
 
   # This method should delete all of the contacts
-  def self.delete_all
+  def self.delete_all;
 
   end
 
-  def full_name
-
+  def full_name;
+    return "#{@first_name} #{@last_name} "
   end
-
+  def id
+    return @id
+  end
+  def last_name
+    @last_name
+  end
+  def first_name
+    @first_name
+  end
+  def email
+    @email
+  end
+  def note
+    @note
+  end
   # This method should delete the contact
   # HINT: Check the Array class docs for built-in methods that might be useful here
-  def delete
-
+  def delete(contacy)
+    @@contacts.delete(contact)
   end
+  # def multigetter
+  #   case
+  #   when "1"
+  #     return @first_name
+  #   when "2"
+  #     return @last_name
+  #   when "3"
+  #     return @email
+  #   when "4"
+  #     return @note
+  # end
+
+end
 
   # Feel free to add other methods here, if you need them.
 
 end
 
-
-Contact.create("Haggai", "Lerman", "haguyle@gmail.com", "DevOps Engineer")
+p " TEST create"
+p Contact.create("Haggai", "Lerman", "haguyle@gmail.com", "DevOps Engineer")
+p Contact.create("Keren", "Lerman", "Epstein@gmail.com", "Techer")
+p "=============="
+p "TEST all"
+p Contact.all
+p "=============="
+p "test find"
+p Contact.find(101).full_name
