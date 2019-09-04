@@ -52,8 +52,17 @@ class CRM
   end
 
   def modify_existing_contact
+    modify_menu
     
 
+  end
+  def modify_menu
+    puts "\e[H\e[2J"
+    puts "please select an attribute to modify:"
+    puts "[1] First_name"
+    puts "[2] Last_name"
+    puts "[3] Email"
+    puts "[4] back"
   end
 
   def delete_contact
