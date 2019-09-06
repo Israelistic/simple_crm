@@ -55,27 +55,31 @@ class Contact
   # but it should allow you to search for a contact using attributes other than id
   # by specifying both the name of the attribute and the value
   # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
-  def self.find_by(atribute, value);
+  def self.find_by(attribute, value);
     case attribute
     when "1"
-      @@contact.each do |contact|
-        if contact.first_name.dowcase == value.downcase
-        return contact
+      @@contacts.each do |contact|
+        if contact.first_name.downcase == value.downcase
+          return p contact
+        end
       end
     when "2"
-      @@contact.each do |contact|
-        if contact.last_name.dowcase == value.downcase
-        return contact
+      @@contacts.each do |contact|
+        if contact.last_name.downcase == value.downcase
+          return p contact
+        end
       end
     when "3"
-      @@contact.each do |contact|
-      if contact.email.downcase.dowcase == value.downcase
-        return contact
+      @@contacts.each do |contact|
+        if contact.email.downcase.downcase == value.downcase
+         return p contact
+        end
       end
+    end
   end
 
   # This method should delete all of the contacts
-  def self.delete_all;
+  def self.delete_all
      @@contacts.each { | contact |  contacts.delete_at(contact)}
   end
 
@@ -99,7 +103,7 @@ class Contact
   end
   # This method should delete the contact
   # HINT: Check the Array class docs for built-in methods that might be useful here
-  def delete(contacy)
+  def delete(contact)
     @@contacts.delete(contact)
   end
   # def multigetter
@@ -113,12 +117,9 @@ class Contact
   #   when "4"
   #     return @note
   # end
+end  # Feel free to add other methods here, if you need them.
 
-end
 
-  # Feel free to add other methods here, if you need them.
-
-end
 
 p " TEST create"
 p Contact.create("Haggai", "Lerman", "haguyle@gmail.com", "DevOps Engineer")
