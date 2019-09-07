@@ -85,7 +85,6 @@ class Crm
 
   def search_by_attribute
     search_by_menu
-    contact_attribute = gets.chomp
     puts "what is the name of the user first, lastname, email, note"
     user_value = gets.chomp
     puts "\e[H\e[2J"
@@ -95,7 +94,6 @@ class Crm
     elsif (contact_attribute == 5)
        print_main_menu
     end
-  end
   end
   def search_by_menu
      puts "\e[H\e[2J"
